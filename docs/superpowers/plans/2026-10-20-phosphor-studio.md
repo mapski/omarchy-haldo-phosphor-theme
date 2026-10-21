@@ -35,10 +35,10 @@ backups; it never runs as part of theme installation.
 **Interfaces:** `build_profile(shell: dict, menu: dict) -> tuple[dict, dict]` and
 `read_jsonc(text: str) -> dict`; CLI previews by default, `--apply` writes.
 
-- [ ] Write failing tests for JSONC strings/trailing commas, merge preservation, exactly one Agents widget/two launch entries, idempotence, invalid input, private backups and symlinks.
-- [ ] Run `python3 -m unittest discover -s tests -v` and confirm expected failures before implementation.
-- [ ] Implement profile files and merger, with native named CLI launches and unchanged default-agent setting.
-- [ ] Run the complete test suite; inspect backup and preview behavior under temporary HOME.
+- [x] Write failing tests for JSONC strings/trailing commas, merge preservation, exactly one Agents widget/two launch entries, idempotence, invalid input, private backups and symlinks.
+- [x] Run `python3 -m unittest discover -s tests -v` and confirm expected failures before implementation.
+- [x] Implement profile files and merger, with native named CLI launches and unchanged default-agent setting.
+- [x] Run the complete test suite; inspect backup and preview behavior under temporary HOME.
 
 ### Task 2: Installable palette and original art
 
@@ -46,10 +46,10 @@ backups; it never runs as part of theme installation.
 
 **Interfaces:** Omarchy native TOML palette and section replacement contract; 3840x2160 PNG wallpapers.
 
-- [ ] Build palette and section configuration from the approved design; use current generated defaults for unmodified surfaces.
-- [ ] Generate original signal contours and quiet wallpaper with reproducible source.
-- [ ] Validate palette roles/contrast, JSON/TOML, images, symlinks and imported-theme-safe files.
-- [ ] Run native theme staging and template generation with temporary HOME; inspect rendered terminal/agent/editor configurations and merged shell states.
+- [x] Build palette and section configuration from the approved design; use current generated defaults for unmodified surfaces.
+- [x] Generate original signal contours and quiet wallpaper with reproducible source.
+- [x] Validate palette roles/contrast, JSON/TOML, images, symlinks and imported-theme-safe files.
+- [x] Run native theme staging and template generation with temporary HOME; inspect rendered terminal/agent/editor configurations and merged shell states.
 
 ### Task 3: Runtime, documentation and publication
 
@@ -57,7 +57,7 @@ backups; it never runs as part of theme installation.
 
 **Interfaces:** Documented installation command, explicit optional profile command, backup rollback instructions.
 
-- [ ] Render actual shell components and attempt an isolated real Wayland desktop; record exact verification limits.
-- [ ] Review source, license, screenshots, repository contents, and run full tests/validation.
-- [ ] Commit and push the tested build to the provided public repository; verify the remote commit and public contents.
-- [ ] Submit a gallery PR only when the required real screenshot exists; otherwise document that remaining gate without claiming gallery acceptance.
+- [x] Render actual shell components and attempt an isolated real Wayland desktop; record exact verification limits.
+- [x] Review source, license, screenshots, repository contents, and run full tests/validation.
+- [x] Commit and push the tested build to the provided public repository; verify the remote commit and public contents.
+- [x] Submit a gallery PR only when the required real screenshot exists; otherwise document that remaining gate without claiming gallery acceptance.

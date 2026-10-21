@@ -5,10 +5,11 @@ Hyprland **0.56.2-4**, Quickshell **0.3.2.r7.g2b4501a-1**.
 
 ## Verified
 
-- Eight Python integration tests cover preview/no writes, JSONC parsing and
+- Nine Python integration tests cover preview/no writes, JSONC parsing and
   unrelated-setting preservation, exactly one Agents widget and two named
   launch entries, idempotence, private exact backups, invalid input, symlink
-  refusal, and missing input files. Packaged defaults are fixtures, so CI does
+  refusal, missing input files, and the HOME config path used by native Omarchy.
+  Packaged defaults are fixtures, so CI does
   not require Omarchy to be installed.
 - All palette text/semantic roles checked by `scripts/validate.py` meet 4.5:1
   on the base, raised and selection backgrounds. These are opaque-color
@@ -27,7 +28,7 @@ Hyprland **0.56.2-4**, Quickshell **0.3.2.r7.g2b4501a-1**.
   `docs/images/agents-menu.png` captures the native menu. Neither is a browser
   mockup. The gallery WebP is 1200x675, stripped, and 34,558 bytes.
 - A fresh read-only reviewer found a test portability issue; the missing-config
-  test now uses an explicit packaged-default fixture. The complete eight-test
+  test now uses an explicit packaged-default fixture. The complete test
   suite also passes with the external `OMARCHY_PATH` pointing at a nonexistent
   directory. No further verified production issue was reported by that review.
 

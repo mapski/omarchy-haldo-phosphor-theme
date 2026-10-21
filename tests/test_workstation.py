@@ -37,8 +37,8 @@ class WorkstationProfileTests(unittest.TestCase):
           /* existing custom menu */
         }''')
 
-    def run_profile(self, *args):
-        env = dict(os.environ, HOME=str(self.home), XDG_CONFIG_HOME=str(self.home / '.config'), OMARCHY_PATH=str(self.omarchy))
+    def run_profile(self, *args, config_home=None):
+        env = dict(os.environ, HOME=str(self.home), XDG_CONFIG_HOME=str(config_home or self.home / '.config'), OMARCHY_PATH=str(self.omarchy))
         return subprocess.run([sys.executable, str(ROOT / 'scripts/workstation.py'), *args],
                               env=env, capture_output=True, text=True)
 
@@ -119,6 +119,16 @@ class WorkstationProfileTests(unittest.TestCase):
         shell, menu = self.apply()
         self.assertEqual(shell['idle'], {'screensaver': 150, 'lock': 300})
         self.assertIn('phosphor.codex', menu)
+
+    def test_writes_the_home_config_path_used_by_native_omarchy(self):
+        alternate = self.home / 'other-config'
+        result = self.run_profile('--apply', config_home=alternate)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertFalse((alternate / 'omarchy/shell.json').exists())
+        shell = json.loads(self.shell_path.read_text())
+        agents = [item for section in shell['bar']['layout'].values()
+                  for item in section if item['id'] == 'omarchy.agents']
+        self.assertEqual(len(agents), 1)
 
 
 if __name__ == '__main__':

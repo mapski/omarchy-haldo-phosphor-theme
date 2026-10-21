@@ -69,7 +69,8 @@ def main():
     parser.add_argument('--apply', action='store_true', help='write configuration after private backups')
     args = parser.parse_args()
     home = Path.home()
-    config = Path(os.environ.get('XDG_CONFIG_HOME', home / '.config')) / 'omarchy'
+    # Match the native shell/menu contract, which reads HOME/.config directly.
+    config = home / '.config/omarchy'
     paths = [config / 'shell.json', config / 'extensions/omarchy-menu.jsonc']
     try:
         for path in [*paths, config / 'phosphor-backups']:

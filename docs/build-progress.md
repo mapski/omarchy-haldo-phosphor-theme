@@ -32,4 +32,13 @@ contrast. Generated app outputs and semantic Claude diff colors verified.
 Task 3: runtime verified — actual nested Omarchy shell, generated Foot colors,
 generated Neovim/Aether palette, two-entry native Agents menu, 1920x1080 clean
 desktop capture and 1200x675 gallery WebP. See docs/validation.md for limits.
-Publication pending final full checks and remote verification.
+Task 3: complete — source published to the requested public repository on main.
+GitHub CI passed for build commit cf5455f. Gallery contribution submitted as
+https://github.com/omacom/omarchy-site/pull/602; maintainer review is pending.
+
+Final compatibility review found that the native shell uses HOME/.config
+directly even with a different XDG_CONFIG_HOME. Added a failing regression,
+aligned the profile path with the shell, and reran all nine tests successfully.
+
+Temporary test shell/compositor processes have been stopped. Live installation
+and real account/agent-task acceptance remain separate optional follow-up work.

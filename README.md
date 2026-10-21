@@ -70,3 +70,6 @@ python3 scripts/build-wallpapers.py  # requires ImageMagick
 
 [Design](docs/design.md) · [Validation evidence and limits](docs/validation.md) ·
 [Credits](CREDITS.md) · [MIT license](LICENSE)
+
+Community gallery submission: [omacom/omarchy-site#602](https://github.com/omacom/omarchy-site/pull/602)
+(maintainer review pending).

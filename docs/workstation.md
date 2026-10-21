@@ -4,6 +4,9 @@ Python 3.11+ and the native Omarchy shell are required. Preview by running
 `python3 scripts/workstation.py` from this checkout. No arguments means no
 configuration writes. Add `--apply` to apply the profile explicitly.
 
+The profile uses `~/.config/omarchy`, matching the native shell/menu even when
+`XDG_CONFIG_HOME` is set to a different location.
+
 ## What changes
 
 - `~/.config/omarchy/shell.json`: top opaque bar; menu/workspaces left; clock

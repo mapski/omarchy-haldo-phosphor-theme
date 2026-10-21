@@ -26,10 +26,19 @@ Hyprland **0.56.2-4**, Quickshell **0.3.2.r7.g2b4501a-1**.
 - An isolated nested Wayland compositor ran the actual packaged Omarchy shell.
   Foot used its generated colors; Neovim used the generated Aether v3 palette.
   The actual menu displayed both Codex and Claude. No agent sessions were started.
-- `preview.png` is an unmodified 1920x1080 real desktop capture with the
-  included wallpaper, a terminal and editor, no pointer, and no notifications.
-  `docs/images/agents-menu.png` captures the native menu. Neither is a browser
-  mockup. The gallery WebP is 1200x675, stripped, and 34,558 bytes.
+- README screenshots were refreshed on October 21, 2026. `preview.png` is a
+  1920x1080 real desktop capture with live btop CPU/memory graphs, Neovim showing
+  the project's Python source, labeled palette swatches in a terminal, and the
+  included wallpaper. `docs/images/agents-menu.png` shows the native Codex/Claude
+  menu over the same workspace. The centered AM/PM clock is visible. Neither
+  image is a mockup; only image metadata was stripped after capture.
+- Btop uses Omarchy's generated palette. Its CPU title is customized for the
+  showcase; utilization and memory graphs are real. Process lists, network and
+  disks were hidden, and no personal paths, authenticated agent data, mouse
+  pointer or notifications are shown.
+- The gallery PR retains its original separate WebP capture, 1200x675,
+  metadata stripped, and 34,558 bytes. This README refresh does not change that
+  upstream contribution.
 - A fresh read-only reviewer found a test portability issue; the missing-config
   test now uses an explicit packaged-default fixture. The complete test
   suite also passes with the external `OMARCHY_PATH` pointing at a nonexistent
@@ -39,8 +48,7 @@ Hyprland **0.56.2-4**, Quickshell **0.3.2.r7.g2b4501a-1**.
 
 The AM/PM format was checked with native Qt formatting at midnight, noon and
 15:05, including a negative probe that exited nonzero on a wrong expectation.
-Existing desktop screenshots show the initial 24-hour-clock build; the new
-profile settings were verified independently, not recaptured in those images.
+The refreshed README captures also show the actual AM/PM bar label.
 
 The test compositor used a separate HOME, runtime directory and private D-Bus
 session. Idle, polkit, notifications and night light were disabled only in that

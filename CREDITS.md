@@ -13,6 +13,6 @@
 - Runtime editor verification uses Omarchy's configured Aether v3 Neovim theme
   with generated palette settings. Aether code is not bundled in this project.
 
-The desktop preview is a real isolated Omarchy/Hyprland session with Foot and
-Neovim, using the included wallpaper and generated theme files. It is not the
+The desktop preview is a real isolated Omarchy/Hyprland session with Foot,
+btop and Neovim, using the included wallpaper and generated theme files. It is not the
 earlier browser concept mockup. No authenticated agent account data is shown.

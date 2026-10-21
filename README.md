@@ -4,10 +4,16 @@
 with warm green, ivory text, amber details, and restrained magenta. Original
 signal-contour wallpapers leave room for terminals, editors, and focused work.
 
-![Phosphor Studio running in an isolated Omarchy Wayland session](preview.png)
+![Phosphor Studio with live btop graphs, themed Neovim source, and labeled palette swatches](preview.png)
 
-The preview shows the initial build. The current workstation profile uses a
-centered AM/PM clock and includes the native Omarchy update indicator.
+Live btop CPU and memory graphs, Neovim, and the Phosphor palette in an isolated
+Omarchy session. The centered clock uses AM/PM; the original signal wallpaper
+and native shell share the same warm green and ivory palette.
+
+![Native Codex and Claude menu over the Phosphor Studio workspace](docs/images/agents-menu.png)
+
+The native Agents menu keeps Codex and Claude equally accessible. Both images
+are real 1920×1080 Wayland captures, not mockups.
 
 ## Install
 

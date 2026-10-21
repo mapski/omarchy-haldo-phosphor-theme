@@ -9,18 +9,30 @@ The profile uses `~/.config/omarchy`, matching the native shell/menu even when
 
 ## What changes
 
-- `~/.config/omarchy/shell.json`: top opaque bar; menu/workspaces left; clock
-  centered; one Agents widget, indicators, tray, network, audio and power right.
+- `~/.config/omarchy/shell.json`: top opaque bar; menu/workspaces left; 12-hour
+  AM/PM clock centered; one Agents widget, indicators, Omarchy updates, tray,
+  network, audio and power right. The clock format is `ddd h:mm AP`.
 - `~/.config/omarchy/extensions/omarchy-menu.jsonc`: an Agents submenu with
   Codex and Claude entries. Entries are hidden when their CLI is missing.
 - Agent widget settings: Codex and Claude enabled, other existing provider
   entries disabled, refresh 900 seconds, sync off.
 
-The profile intentionally replaces the bar's widget order. Settings on retained
-widgets are merged, with the profile's explicit settings winning. Unrelated
+The profile rebuilds native bar defaults while retaining existing third-party
+and custom widget entries in their current sections and relative order, with
+their per-widget settings intact. Native widget settings are merged, with the
+profile's explicit settings winning. Unrelated
 top-level shell/menu fields are preserved. Existing idle, lock, plugins,
 credentials, default agent, monitors, and keybindings remain as configured.
 Theme appearance is separate and comes from Omarchy theme installation.
+
+The clock and update indicator are removed from `disabledPlugins` if listed;
+unrelated disabled plugins remain disabled. The native update indicator checks
+when loaded and every six hours, hides when no update is available, and opens
+Omarchy's updater when clicked. No updates are run by applying the profile.
+
+Preserving a widget means preserving its section and order among existing
+third-party entries; added native defaults can change the exact pixel position.
+The profile does not discover, install, or enable third-party plugins on its own.
 
 Both inputs are parsed and the output is built before either file is written.
 JSONC comments and trailing commas are accepted, including strings containing

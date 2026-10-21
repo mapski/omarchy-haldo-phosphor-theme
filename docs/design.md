@@ -16,7 +16,10 @@ and Claude menu entries. Hermes is deferred.
 - Opaque ink surfaces, 2px keyboard focus, green selection, small magenta hover.
 - Two original static 3840x2160 wallpapers: signal contours and a quiet variant.
 - Optional workstation profile: top bar; menu/workspaces left; clock centered;
-  one native Agents widget plus indicators/tray/network/audio/power right.
+  one native Agents widget plus indicators/updates/tray/network/audio/power right.
+- Centered clock uses `ddd h:mm AP` (for example Wed 3:05 PM). Explicitly enable
+  clock and native update indicator while preserving unrelated disabled plugins.
+- Preserve existing third-party/custom widget sections, relative order and settings.
 - Codex and Claude enabled equally in the Agents provider settings, native
   900-second refresh, account sync off. No fabricated usage or task state.
 - Menu offers named Codex and Claude launch actions. Preserve the existing

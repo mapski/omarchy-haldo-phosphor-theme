@@ -5,10 +5,13 @@ Hyprland **0.56.2-4**, Quickshell **0.3.2.r7.g2b4501a-1**.
 
 ## Verified
 
-- Nine Python integration tests cover preview/no writes, JSONC parsing and
+- Eleven Python integration tests cover preview/no writes, JSONC parsing and
   unrelated-setting preservation, exactly one Agents widget and two named
   launch entries, idempotence, private exact backups, invalid input, symlink
   refusal, missing input files, and the HOME config path used by native Omarchy.
+  The additional cases check the centered AM/PM clock, update indicator
+  enablement, unrelated disabled plugins, and third-party widget preservation
+  including idempotent reapplication.
   Packaged defaults are fixtures, so CI does
   not require Omarchy to be installed.
 - All palette text/semantic roles checked by `scripts/validate.py` meet 4.5:1
@@ -33,6 +36,11 @@ Hyprland **0.56.2-4**, Quickshell **0.3.2.r7.g2b4501a-1**.
   directory. No further verified production issue was reported by that review.
 
 ## Runtime conditions and limits
+
+The AM/PM format was checked with native Qt formatting at midnight, noon and
+15:05, including a negative probe that exited nonzero on a wrong expectation.
+Existing desktop screenshots show the initial 24-hour-clock build; the new
+profile settings were verified independently, not recaptured in those images.
 
 The test compositor used a separate HOME, runtime directory and private D-Bus
 session. Idle, polkit, notifications and night light were disabled only in that

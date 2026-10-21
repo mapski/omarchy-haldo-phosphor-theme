@@ -46,7 +46,22 @@ def build_profile(shell, menu):
             else:
                 merged.update(item)
             proposed['layout'][section][index] = merged
+    # Rebuild native defaults, retaining only already-placed third-party/custom
+    # widgets. Their section, relative order and per-widget settings survive.
+    for section, items in old_bar.get('layout', {}).items():
+        if section not in proposed['layout']:
+            continue
+        for position, item in enumerate(items):
+            if isinstance(item, dict) and isinstance(item.get('id'), str) and not item['id'].startswith('omarchy.'):
+                target = proposed['layout'][section]
+                target.insert(min(position, len(target)), deepcopy(item))
     old_bar.update(proposed)
+    if 'disabledPlugins' in shell:
+        disabled = shell['disabledPlugins']
+        if not isinstance(disabled, list) or any(not isinstance(item, str) for item in disabled):
+            raise ValueError('disabledPlugins must be an array of plugin IDs')
+        shell['disabledPlugins'] = [item for item in disabled
+                                    if item not in ('omarchy.clock', 'omarchy.system-update')]
     shell.setdefault('version', 1)
     menu.update(json.loads((ROOT / 'profiles/menu.json').read_text()))
     return shell, menu

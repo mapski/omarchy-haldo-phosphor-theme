@@ -83,6 +83,21 @@ class WorkstationProfileTests(unittest.TestCase):
         self.apply()
         self.assertEqual(before, (self.shell_path.read_bytes(), self.menu_path.read_bytes()))
 
+    def test_centered_am_pm_clock_and_update_indicator(self):
+        self.original_shell['disabledPlugins'] = ['omarchy.clock', 'omarchy.system-update', 'custom.disabled']
+        self.shell_path.write_text(json.dumps(self.original_shell))
+        shell, _ = self.apply()
+        self.assertEqual(shell['bar']['centerAnchor'], 'omarchy.clock')
+        clocks = [item for item in shell['bar']['layout']['center'] if item['id'] == 'omarchy.clock']
+        self.assertEqual(len(clocks), 1)
+        self.assertEqual(clocks[0]['format'], 'ddd h:mm AP')
+        updates = [item for section in shell['bar']['layout'].values()
+                   for item in section if item['id'] == 'omarchy.system-update']
+        self.assertEqual(len(updates), 1)
+        self.assertNotIn('omarchy.clock', shell['disabledPlugins'])
+        self.assertNotIn('omarchy.system-update', shell['disabledPlugins'])
+        self.assertIn('custom.disabled', shell['disabledPlugins'])
+
     def test_private_backups_preserve_exact_originals(self):
         original = self.shell_path.read_bytes(), self.menu_path.read_bytes()
         self.apply()
@@ -93,6 +108,23 @@ class WorkstationProfileTests(unittest.TestCase):
         self.assertEqual((backup / 'omarchy-menu.jsonc').read_bytes(), original[1])
         self.assertEqual(backup.stat().st_mode & 0o777, 0o700)
         self.assertEqual((backup / 'shell.json').stat().st_mode & 0o777, 0o600)
+
+    def test_preserves_existing_third_party_widgets_and_their_settings(self):
+        self.original_shell['bar']['layout'] = {
+            'left': [{'id': 'omarchy.menu'}, {'id': 'custom.launcher', 'mode': 'compact'}, {'id': 'omarchy.workspaces'}],
+            'center': [{'id': 'custom.media', 'options': {'scroll': False}}, {'id': 'omarchy.clock'}],
+            'right': [{'id': 'custom.auth', 'iconOnly': True}, {'id': 'omarchy.agents'}, {'id': 'custom.sync'}],
+        }
+        self.shell_path.write_text(json.dumps(self.original_shell))
+        shell, _ = self.apply()
+        layout = shell['bar']['layout']
+        self.assertEqual(layout['left'][1], {'id': 'custom.launcher', 'mode': 'compact'})
+        self.assertEqual(layout['center'][0], {'id': 'custom.media', 'options': {'scroll': False}})
+        self.assertEqual(layout['right'][0], {'id': 'custom.auth', 'iconOnly': True})
+        self.assertEqual(layout['right'][2], {'id': 'custom.sync'})
+        first = self.shell_path.read_bytes()
+        self.apply()
+        self.assertEqual(first, self.shell_path.read_bytes())
 
     def test_invalid_menu_leaves_both_files_untouched(self):
         self.menu_path.write_text('{ broken')

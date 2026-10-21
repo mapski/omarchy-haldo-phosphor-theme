@@ -6,6 +6,9 @@ signal-contour wallpapers leave room for terminals, editors, and focused work.
 
 ![Phosphor Studio running in an isolated Omarchy Wayland session](preview.png)
 
+The preview shows the initial build. The current workstation profile uses a
+centered AM/PM clock and includes the native Omarchy update indicator.
+
 ## Install
 
 Built and tested with **Omarchy 4.0.6-1 / Quattro**, Hyprland 0.56.2 and
@@ -47,13 +50,19 @@ Omarchy's terminal helper. Install/sign in to the agents through your usual
 workflow; the profile does not install them, start sessions, or change your
 default agent. Each CLI retains its configured permission behavior.
 
+The centered clock uses a 12-hour format, for example **Wed 3:05 PM**. The native
+Omarchy update indicator is enabled and appears when updates are available.
+Existing third-party/custom widgets retain their bar sections, relative order,
+and settings when the profile is applied. Newly installed plugins still need
+their usual enablement and placement. [Plugin compatibility](docs/plugins.md).
+
 The native Agents widget displays actual usage/limits and can hide when there
 are no usage records. It is not a live task-status monitor. Codex and Claude
 reporting are enabled, Fireworks is disabled for this profile, usage refresh
 stays at 900 seconds, and cross-device sync is off. Hermes is deferred.
 
-Unrelated settings are preserved. Bar layout is intentionally replaced by the
-profile. Exact originals are backed up privately; JSONC comments are normalized
+Unrelated settings are preserved. Native bar defaults are rebuilt while
+existing third-party/custom widgets are retained. Exact originals are backed up privately; JSONC comments are normalized
 when the new menu is written. See [profile details and rollback](docs/workstation.md).
 
 ## Development

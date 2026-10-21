@@ -1,0 +1,7 @@
+background = "#0C1211"
+background-alpha = 1.0
+text = "#E5E3D5"
+active = "#E38D83"
+scale-with-font = false
+size-horizontal = 30
+size-vertical = 32

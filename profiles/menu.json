@@ -1,0 +1,5 @@
+{
+  "phosphor": {"icon": "󰚩", "label": "Agents", "description": "Phosphor Studio: Codex and Claude", "aliases": ["phosphor-agents"]},
+  "phosphor.codex": {"icon": "", "iconFont": "omarchy", "label": "Codex", "description": "Start Codex in a terminal", "when": "command -v codex >/dev/null 2>&1", "action": "omarchy-launch-terminal codex"},
+  "phosphor.claude": {"icon": "󰛄", "label": "Claude", "description": "Start Claude in a terminal", "when": "command -v claude >/dev/null 2>&1", "action": "omarchy-launch-terminal claude"}
+}

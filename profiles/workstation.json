@@ -1,0 +1,16 @@
+{
+  "position": "top",
+  "transparent": false,
+  "centerAnchor": "omarchy.clock",
+  "layout": {
+    "left": [{"id": "omarchy.menu"}, {"id": "omarchy.workspaces"}],
+    "center": [{"id": "omarchy.clock", "format": "ddd HH:mm"}],
+    "right": [
+      {"id": "omarchy.agents", "refreshIntervalSec": 900, "syncMode": "Off", "providers": {
+        "codex": {"enabled": true}, "claude": {"enabled": true}, "fireworks": {"enabled": false}
+      }},
+      {"id": "omarchy.indicators"}, {"id": "omarchy.tray"},
+      {"id": "omarchy.network"}, {"id": "omarchy.audio"}, {"id": "omarchy.power"}
+    ]
+  }
+}

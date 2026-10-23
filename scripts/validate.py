@@ -40,7 +40,7 @@ def static_checks():
     for path in (ROOT / 'profiles').glob('*.json'):
         json.loads(path.read_text())
     wallpapers = list((ROOT / 'backgrounds').glob('*.png'))
-    assert len(wallpapers) == 2, 'Two original wallpapers required'
+    assert sorted(p.name for p in wallpapers) == ['01-jade-prism.png', '02-ember-coast.png', '03-phosphor-bloom.png'], 'Three approved backgrounds required'
     for path in wallpapers:
         data = path.read_bytes()
         assert data[:8] == b'\x89PNG\r\n\x1a\n'
@@ -50,7 +50,7 @@ def static_checks():
         assert not list(ROOT.glob(pattern)), f'Executable theme override shipped: {pattern}'
     for directory in [ROOT, ROOT / 'backgrounds', ROOT / 'profiles']:
         assert not any(path.is_symlink() for path in directory.iterdir()), 'Symlink in theme assets'
-    print(f'Static checks passed: palette contrast >=4.5:1, {len(list(ROOT.glob("shell.*.toml")))} shell sections, 2 wallpapers.')
+    print(f'Static checks passed: palette contrast >=4.5:1, {len(list(ROOT.glob("shell.*.toml")))} shell sections, 3 wallpapers.')
 
 
 def native_checks(keep=False):

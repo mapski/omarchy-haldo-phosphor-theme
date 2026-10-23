@@ -1,7 +1,7 @@
 mode = "dark"
 
 accent = "#9BCC9C"
-selection = "#223027"
+selection = "#212E26"
 muted = "#879C90"
 
 background = "#101717"
@@ -19,7 +19,7 @@ hyprland_inactive_border = "#41574A"
 
 red = "#E38D83"
 yellow = "#DBC07E"
-orange = "#D9AE6A"
+orange = "#D97757"
 green = "#9BCC9C"
 cyan = "#8DC7BB"
 blue = "#94B7CF"

@@ -84,3 +84,12 @@ Gallery asset preparation follows the site's README:
 ```bash
 magick preview.png -strip -resize '1200>' -quality 80 docs/images/haldo-phosphor.webp
 ```
+
+## Three-background and orange update
+
+The approved original compositions were refined with the built-in image tool for
+slightly stronger orange illumination. All three shipped PNGs are 3840×2160
+Lanczos exports from 1672×941 generated images, not native 4K renders.
+Jade Prism sorts first; Ember Coast and Phosphor Bloom follow. The retired
+contour sources and generator are archived outside the installable repository.
+Earlier screenshots are labeled historical until fresh real-session captures.

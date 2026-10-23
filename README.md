@@ -1,8 +1,22 @@
 # HALDO Phosphor
 
 **Warm theme for long workdays.** Phosphor Studio pairs petrol ink surfaces
-with warm green, ivory text, amber details, and restrained magenta. Original
-signal-contour wallpapers leave room for terminals, editors, and focused work.
+with warm green, ivory text, Claude Code orange, and restrained magenta.
+Three coordinated backgrounds complete the theme.
+
+![Jade Prism — default wallpaper](backgrounds/01-jade-prism.png)
+
+**Jade Prism** is the default. **Ember Coast** and **Phosphor Bloom** are also included.
+The 3840×2160 files are AI-generated artwork, upscaled from 1672×941 sources;
+they are not native 4K renders. No generation script is required.
+
+![Ember Coast](backgrounds/02-ember-coast.png)
+![Phosphor Bloom](backgrounds/03-phosphor-bloom.png)
+
+## Earlier runtime screenshots
+
+The following real captures document the earlier contour-wallpaper/amber version;
+they do not show the current backgrounds or orange refinement.
 
 ![Phosphor Studio with live btop graphs, themed Neovim source, and labeled palette swatches](preview.png)
 
@@ -30,7 +44,7 @@ The theme adds nine shell section overrides, including visible keyboard focus,
 green selections, magenta hover, opaque panels, a 13px shell type scale, and a
 30px horizontal bar. It retains your selected monospace font family.
 
-Cycle between the two included backgrounds through Omarchy's background picker.
+Cycle between the three included backgrounds through Omarchy's background picker.
 No third-party plugin is needed. Matrix Rain can be used separately if you
 already have it; these wallpapers work on their own.
 
@@ -73,14 +87,13 @@ when the new menu is written. See [profile details and rollback](docs/workstatio
 
 ## Development
 
-Python 3.11+ is sufficient for tests and static validation. ImageMagick is only
-needed to regenerate the original wallpapers.
+Python 3.11+ is sufficient for tests and static validation. Wallpapers ship as
+finished image files.
 
 ```bash
 python3 -m unittest discover -s tests -v
 python3 scripts/validate.py
 python3 scripts/validate.py --native  # requires installed Omarchy
-python3 scripts/build-wallpapers.py  # requires ImageMagick
 ```
 
 [Design](docs/design.md) · [Validation evidence and limits](docs/validation.md) ·

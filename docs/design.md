@@ -1,7 +1,7 @@
 # HALDO Phosphor / Phosphor Studio
 
 Approved direction: warm phosphor green, ivory text, petrol ink surfaces,
-amber details, restrained magenta, original signal-contour wallpaper.
+Claude Code orange, restrained magenta and three coordinated backgrounds.
 The user approved starting the build with one native Agents widget and Codex
 and Claude menu entries. Hermes is deferred.
 
@@ -14,7 +14,8 @@ and Claude menu entries. Hermes is deferred.
   sections for readable menus, launcher, popups, notification, lock and controls.
 - 13px shell base, 30px horizontal bar at that size, existing monospace family.
 - Opaque ink surfaces, 2px keyboard focus, green selection, small magenta hover.
-- Two original static 3840x2160 wallpapers: signal contours and a quiet variant.
+- Three static 3840x2160 wallpapers: Jade Prism (default), Ember Coast and
+  Phosphor Bloom. AI-generated 1672x941 sources, exported as upscaled 4K PNGs.
 - Optional workstation profile: top bar; menu/workspaces left; clock centered;
   one native Agents widget plus indicators/updates/tray/network/audio/power right.
 - Centered clock uses `ddd h:mm AP` (for example Wed 3:05 PM). Explicitly enable

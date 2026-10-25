@@ -3,13 +3,26 @@
 **Warm theme for long workdays.** Phosphor Studio brings ivory text, phosphor
 green and Claude Code orange to deep petrol-ink surfaces.
 
+**Theme release: [v1.0.0](https://github.com/mapski/omarchy-haldo-phosphor-theme/releases/tag/v1.0.0)** ·
+[Changelog](CHANGELOG.md) ·
+[Validation](https://github.com/mapski/omarchy-haldo-phosphor-theme/actions/workflows/validate.yml)
+
+Community gallery submission: [omacom/omarchy-site#602](https://github.com/omacom/omarchy-site/pull/602)
+— under maintainer review. Publishing this GitHub release does not imply gallery
+approval or inclusion as an Omarchy built-in theme.
+
 ![HALDO Phosphor with Jade Prism, themed Neovim, live btop and palette swatches](preview.png)
 
 ## Install
 
+For a first installation:
+
 ```bash
 omarchy theme install https://github.com/mapski/omarchy-haldo-phosphor-theme.git
 ```
+
+If already installed, use the [update guidance](docs/installation.md#updates).
+The installer replaces its destination directory; back up local changes first.
 
 Select **HALDO Phosphor** from **Omarchy menu → Style → Theme**, or run:
 
@@ -23,9 +36,14 @@ shell sections coordinate the bar, menus, launcher, notifications, tooltips,
 controls and lock screen. The shell uses 13px text and a 30px horizontal bar
 while retaining your font family.
 
-This is a theme-only package. It contains no installer, executable scripts,
-test programs or workstation profile. Your widget arrangement, agent accounts,
-terminal choice, shortcuts and idle policy remain yours.
+This is a theme-only package. It contains no installer, Python/shell helper
+scripts or automatic workstation profile. Your widget arrangement, agent
+accounts, terminal choice, shortcuts and idle policy remain yours.
+
+See [installation, exact-version checkout, updates and rollback](docs/installation.md),
+[optional workstation choices](docs/workstation.md), and
+[third-party plugin compatibility](docs/plugins.md). The optional workstation
+work remains documented separately; theme installation does not apply it.
 
 ## Backgrounds
 
@@ -65,4 +83,5 @@ Foot, Neovim and btop. The sample bar arrangement demonstrates the appearance;
 installing the theme does not replace your bar layout. Live system graphs are
 shown without process lists, accounts or network information.
 
+[Validation and release traceability](docs/validation.md) ·
 [Credits](CREDITS.md) · [MIT license](LICENSE)

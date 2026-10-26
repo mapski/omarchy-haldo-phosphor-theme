@@ -30,6 +30,30 @@ jobs:
           assert f'v{version}' in (root / 'README.md').read_text()
           assert f'## {version} ' in (root / 'CHANGELOG.md').read_text()
 
+          # Approved appearance; change these digests only with an intentional visual update.
+          protected_files = {
+              'colors.toml': '2e68e10f1c618fb920686efbf5b851b13ec9c15cc3cfffbf07c7ffa2d6fd34d5',
+              'icons.theme': 'b14b7a19287d12877cb46cc70a715fd25aae7ba475d3d1120392e7adadd23649',
+              'shell.bar.toml': '7692c4de0984ed0d0624f6ccfbb15f0999ab195f609a145b07144e4b9b4f5cc9',
+              'shell.font.toml': '47aed15a59e55df185af61dfee5caf9f0d26a37eb8bea82d77373a2ecbb4f767',
+              'shell.controls.toml': 'bbb631868654faf34c9048596d2f3a6ae6f70018b7a3c848f18fa31f2e390734',
+              'shell.menu.toml': '964a2c87abf0ed1723a094a9ba024cf5e1b21907408bc47416a9b0f5d4a9f0bf',
+              'shell.launcher.toml': '964a2c87abf0ed1723a094a9ba024cf5e1b21907408bc47416a9b0f5d4a9f0bf',
+              'shell.popups.toml': '6cf26c284039f6c57a30ccfe9992a2ffa26ea8324129469a4ef4919478d2a606',
+              'shell.tooltip.toml': '8db51611956407bd4f39cb7b34d16fbc46ed25c61aa167c5cd0ae4f280649286',
+              'shell.notifications.toml': 'b1c618a43d411b6d0b1f75d8fa122ebd427350dc331a25e3c158579527f2a84f',
+              'shell.lock.toml': '269290c06f29cdf6747d1ba0b98fe96be75d6f22c8de8cbca6ece1a14921b8b9',
+              'backgrounds/01-jade-prism.png': '309065f57813f0524811be5f419c6d3f93486c16cb4e69fb25dfbc2e01eb096d',
+              'backgrounds/02-ember-coast.png': '5e7f67be09d9414da9bec0ea36dde1049aca6a2aecfa06c86e67569d67560b18',
+              'backgrounds/03-phosphor-bloom.png': '6b39c17615587c270371b5f5c0bf63b1256b0fcd3fbd9176cf460c5a02e7a54f',
+              'screenshots/01-jade-prism.png': '102c889e21886fe63e68d0f44431d9064fb5dc774ddbe3eabec57de337f15aae',
+              'screenshots/02-ember-coast.png': '525648952f16038388adf427e35c65e31805dc3c2663bc3652a192a400c0a3f8',
+              'screenshots/03-phosphor-bloom.png': 'd396cbb522427f6172c6990c56574f8c9ae3416aa5b8456aa74d51dd02962ce9',
+              'preview.png': '102c889e21886fe63e68d0f44431d9064fb5dc774ddbe3eabec57de337f15aae',
+          }
+          for name, digest in protected_files.items():
+              assert hashlib.sha256((root / name).read_bytes()).hexdigest() == digest, f'Protected appearance changed: {name}'
+
           palette = tomllib.loads((root / 'colors.toml').read_text())
           for key, value in palette.items():
               if key != 'mode':

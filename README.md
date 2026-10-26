@@ -3,7 +3,7 @@
 **Warm theme for long workdays.** Phosphor Studio brings ivory text, phosphor
 green and Claude Code orange to deep petrol-ink surfaces.
 
-**Theme release: [v1.0.0](https://github.com/mapski/omarchy-haldo-phosphor-theme/releases/tag/v1.0.0)** ·
+**Theme release: [v1.0.1](https://github.com/mapski/omarchy-haldo-phosphor-theme/releases/tag/v1.0.1)** ·
 [Changelog](CHANGELOG.md) ·
 [Validation](https://github.com/mapski/omarchy-haldo-phosphor-theme/actions/workflows/validate.yml)
 

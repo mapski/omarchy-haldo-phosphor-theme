@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.0.1 — 2026-10-26
+
+- Add controlled single-theme updates, backup restoration and failed-update
+  recovery guidance, including pinned releases and local modifications.
+- Enforce the approved palette, shell, icon and image hashes during source
+  validation without changing the appearance.
+- Clarify signature verification, release immutability and the separate
+  evidence required for Omarchy compatibility upgrades.
+
+The palette, shell styling and all artwork remain identical to v1.0.0.
+No runtime helper or workstation installer is added.
+
 ## 1.0.0 — 2026-10-24
 
 First versioned GitHub release of HALDO Phosphor / Phosphor Studio.

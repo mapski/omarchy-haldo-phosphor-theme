@@ -1,7 +1,7 @@
 # Optional workstation choices
 
 These project decisions remain part of Phosphor Studio. They are separate from
-the installable **v1.0.0 theme** and are not applied automatically.
+the installable theme and are not applied automatically.
 
 | Area | Intended configuration |
 | --- | --- |
@@ -44,4 +44,4 @@ profile can duplicate custom workspaces or omit native controls; do not apply
 it without reconciling it with the actual desktop configuration.
 
 Future companion setup must be documented and reviewed separately. No Python
-helper, test script or profile installer is shipped in v1.0.0.
+helper, test script or profile installer is shipped in this theme.

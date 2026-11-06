@@ -2,9 +2,10 @@
 
 ## Compatibility
 
-Theme version: **1.0.1**. Checked against **Omarchy 4.0.6-1 / Quattro**,
-Hyprland 0.56.2 and Quickshell 0.3.2. The theme version and Omarchy package
-version are separate. Older Omarchy releases may not support the shell sections.
+Theme version: **1.0.2**. Checked in isolation against **Omarchy 4.5.0-3 / Quattro**,
+Hyprland 0.56.2-4 and Quickshell 0.3.2.r7.g2b4501a-1. Historical v1.0.1 tests
+used Omarchy 4.0.6-1; that older version was not retested for v1.0.2. Theme and
+Omarchy versions are separate. See [validation scope](validation.md).
 
 Omarchy generates terminal, editor and compositor configuration from
 `colors.toml`. This repository supplies no executable theme overrides or
@@ -29,15 +30,16 @@ The installed slug is `haldo-phosphor`. The installer applies the theme.
 
 ## Exact version
 
-The [v1.0.0 release](https://github.com/mapski/omarchy-haldo-phosphor-theme/releases/tag/v1.0.0)
+The example below deliberately pins the previous
+[v1.0.1 release](https://github.com/mapski/omarchy-haldo-phosphor-theme/releases/tag/v1.0.1), which
 links the versioned tag, exact source commit, archive and checksums. Published
-tags stay fixed by project policy; v1.0.0 does not have GitHub-enforced release
+tags stay fixed by project policy; v1.0.1 does not have GitHub-enforced release
 immutability. To install the
 exact tag on a machine where the destination does **not** already exist:
 
 ```bash
 mkdir -p ~/.config/omarchy/themes
-git clone --branch v1.0.0 --depth 1 https://github.com/mapski/omarchy-haldo-phosphor-theme.git ~/.config/omarchy/themes/haldo-phosphor
+git clone --branch v1.0.1 --depth 1 https://github.com/mapski/omarchy-haldo-phosphor-theme.git ~/.config/omarchy/themes/haldo-phosphor
 omarchy theme set haldo-phosphor
 ```
 
@@ -80,12 +82,12 @@ verify it can be restored before relying on it.
 
 For a controlled update of this theme only, use a published tag and compare its
 resolved commit with the exact SHA on that release. The example uses the
-existing v1.0.0; replace both values together when choosing a later release:
+existing v1.0.1; replace both values together when choosing a later release:
 
 ```bash
 theme_dir="$HOME/.config/omarchy/themes/haldo-phosphor"
-target_tag=v1.0.0
-expected_commit=bd2c29a2a4197ee54e1a6552879ab72cadd736dd
+target_tag=v1.0.1
+expected_commit=3cc70bf866f82c1468fc3cf4ad6fa9e8cbfd1306
 test -d "$theme_dir/.git" && test ! -L "$theme_dir" && test ! -L "$theme_dir/.git" || exit 1
 origin=$(git -C "$theme_dir" remote get-url origin) || exit 1
 test "$origin" = "https://github.com/mapski/omarchy-haldo-phosphor-theme.git" || exit 1
@@ -118,6 +120,13 @@ tracking, clean branch, a single-theme `git pull --ff-only` avoids creating an
 automatic merge. Back up first and inspect the resulting commit before applying.
 
 ## Backgrounds
+
+Version 1.0.2 replaces the three background PNGs with WebP files of the same
+artwork. After updating, reapply the theme and select your preferred background
+again. On Omarchy 4.5.0-3, reapplying after a saved PNG selection falls back to
+Jade Prism because the old filename no longer exists. The release adds no migration
+hook or installer. When rolling back to v1.0.1, select the previous PNG background
+again after restoring the checkout.
 
 Use **Omarchy menu → Style → Background**, or `omarchy theme bg next`.
 Re-selecting an already active theme can advance its background on the tested

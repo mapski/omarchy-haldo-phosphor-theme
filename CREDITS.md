@@ -2,7 +2,7 @@
 
 - Theme and art direction: mapski / HALDO.
 - Jade Prism, Ember Coast and Phosphor Bloom were generated with OpenAI's image
-  tool and refined for the Phosphor palette. The 3840×2160 PNG exports are
+  tool and refined for the Phosphor palette. The 3840×2160 WebP exports are
   upscaled from 1672×941 source images. Artwork is distributed under this
   repository's MIT license.
 - Omarchy provides the shell, native widgets and application theme generation.

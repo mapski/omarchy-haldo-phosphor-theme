@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.0.2 — 2026-11-05
+
+- Re-encode the three existing 3840×2160 backgrounds as metadata-free, quality-82
+  WebP files, reducing their combined size from 19,750,574 to 874,746 bytes.
+- Remove the GitHub Actions workflow and its embedded validation program from
+  the theme repository. Validation tools are maintained outside the package.
+- Update background, validation and migration documentation. Select your
+  preferred background again after an update or rollback across this format change.
+
+The palette, nine shell sections, icons and screenshots are unchanged. The
+wallpapers retain the same artwork and ordering, with lossy compression.
+
 ## 1.0.1 — 2026-10-26
 
 - Add controlled single-theme updates, backup restoration and failed-update

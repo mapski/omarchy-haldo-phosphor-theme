@@ -3,9 +3,9 @@
 **Warm theme for long workdays.** Phosphor Studio brings ivory text, phosphor
 green and Claude Code orange to deep petrol-ink surfaces.
 
-**Theme release: [v1.0.1](https://github.com/mapski/omarchy-haldo-phosphor-theme/releases/tag/v1.0.1)** ·
+**Theme version: 1.0.2** ·
 [Changelog](CHANGELOG.md) ·
-[Validation](https://github.com/mapski/omarchy-haldo-phosphor-theme/actions/workflows/validate.yml)
+[Validation](docs/validation.md)
 
 Community gallery submission: [omacom/omarchy-site#602](https://github.com/omacom/omarchy-site/pull/602)
 — under maintainer review. Publishing this GitHub release does not imply gallery
@@ -30,15 +30,15 @@ Select **HALDO Phosphor** from **Omarchy menu → Style → Theme**, or run:
 omarchy theme set haldo-phosphor
 ```
 
-Designed and checked with **Omarchy 4.0.6-1 / Quattro**. Omarchy generates
+Checked in isolation with **Omarchy 4.5.0-3 / Quattro**. Omarchy generates
 supported terminal, editor and application colors from `colors.toml`. Nine
 shell sections coordinate the bar, menus, launcher, notifications, tooltips,
 controls and lock screen. The shell uses 13px text and a 30px horizontal bar
 while retaining your font family.
 
 This is a theme-only package. It contains no installer, Python/shell helper
-scripts or automatic workstation profile. Your widget arrangement, agent
-accounts, terminal choice, shortcuts and idle policy remain yours.
+scripts, GitHub Actions workflows or automatic workstation profile. Your widget
+arrangement, agent accounts, terminal choice, shortcuts and idle policy remain yours.
 
 See [installation, exact-version checkout, updates and rollback](docs/installation.md),
 [optional workstation choices](docs/workstation.md), and
@@ -55,7 +55,8 @@ choose one, or cycle with:
 omarchy theme bg next
 ```
 
-All three wallpapers ship as 3840×2160 PNGs. The artwork was AI-generated at
+All three wallpapers ship as metadata-free 3840×2160 WebP images (about 875 KB
+in total), encoded at quality 82. The artwork was AI-generated at
 1672×941 and upscaled for 4K output; these are not native-detail 4K renders.
 
 ### Ember Coast

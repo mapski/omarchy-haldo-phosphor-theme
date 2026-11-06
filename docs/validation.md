@@ -1,77 +1,91 @@
 # Validation and release traceability
 
-## Automated source checks
+## Source validation
 
-[Validate theme](https://github.com/mapski/omarchy-haldo-phosphor-theme/actions/workflows/validate.yml)
-runs on pushes and pull requests, including tag pushes. The workflow checks:
+The theme repository contains appearance data, images and documentation. It
+ships no executable validators, GitHub Actions workflows, installers, hooks or
+plugins. Checks are maintained and run outside this repository.
 
-- Semantic version syntax and agreement between a release tag and `VERSION`.
-- Palette and nine shell-section TOML files, including semantic color contrast.
-- Exactly the three approved wallpapers at 3840×2160.
-- SHA-256 preservation of the 18 approved palette, shell, icon and image files.
-- Native 2560×1440 screenshot dimensions and absence of text/EXIF metadata.
-- README/document links, matching Jade Prism preview and absence of bundled
-  Python, shell or Lua script files.
+Release preparation checks the complete file inventory, including hidden paths,
+against the reviewed package. It verifies palette contrast and TOML syntax,
+the nine shell sections, protected palette/icon/shell/screenshot hashes, three
+decodable 3840×2160 WebP backgrounds, stripped image metadata, background size
+and documentation links. Background hashes change intentionally in v1.0.2
+because the existing artwork is re-encoded with lossy compression.
 
-Validation executes inside GitHub Actions; Omarchy does not execute it during
-theme installation. No standalone testing scripts are shipped in this theme.
+Validation of v1.0.0 and v1.0.1 used an embedded GitHub Actions program. Those
+historical runs do not validate v1.0.2. Their workflow was removed from the
+current theme tree; a passing historical CI run is not current certification.
 
 ## Native and visual checks
 
-Native imported-theme staging was checked on Omarchy 4.0.6-1 in a temporary
-HOME, using the repository's imported-theme path and generated app configs.
-The exact v1.0.0 tag was checked before its GitHub Release was published.
-This does not change the author's daily desktop configuration.
+The v1.0.2 candidate passed 14 native lifecycle checks and seven graphical
+checks on Omarchy 4.5.0-3, Hyprland 0.56.2-4 and Quickshell
+0.3.2.r7.g2b4501a-1. Native checks used the real installer and updater with an
+offline Git fixture, a separate filesystem and network namespace, and no host
+desktop sockets. They covered fresh installation, migration from each of the
+three selected PNG backgrounds, WebP cycling, backup restoration, failed fetch,
+incorrect source SHA, local edits and pinned-release handling.
 
-The screenshots are real Wayland captures with Foot, Neovim using Omarchy's
-generated Aether palette, live btop and terminal palette swatches. The CPU model
-label is customized for the showcase; the graphs remain actual system metrics.
-Screenshots demonstrate the appearance, not a widget layout installed by the
-theme. Wallpaper exports are upscaled artwork, as disclosed in the README.
+Graphical checks used one nested Wayland display at scale 1 (1181×1296), Foot,
+the packaged Omarchy Neovim/Aether profile, menu and clock panels, and all three
+WebP backgrounds. Rollback restored the previous PNG background and the editor's
+Aether palette without a restart. Packaged editor plugins were mounted read-only;
+online parser downloads and desktop account services were not tested. The source
+validator also rejected nine deliberately invalid package cases.
+
+The v1.0.1 release was checked on Omarchy 4.0.6-1 with isolated installation,
+update, failure recovery and rollback tests. A nested Wayland session covered
+Foot, the packaged Omarchy Neovim profile, shell panels and the three original
+backgrounds. That evidence applies to v1.0.1 and its recorded environment.
+
+The retained screenshots are real Wayland captures with Foot, Neovim using
+Omarchy's generated Aether palette, live btop and terminal palette swatches.
+They show the same artwork before WebP re-encoding. The CPU model label is
+customized for the showcase; the graphs are actual system metrics. Screenshots
+demonstrate appearance, not a widget layout installed by the theme.
+
+Current-version test results and their exact source identity belong in the
+release notes. Do not infer a newer Omarchy compatibility result from the older
+screenshots or historical tests. Physical login/lock, multiple monitors, account
+integrations and an Omarchy system upgrade require separate validation.
 
 ## Release versus gallery approval
 
-[GitHub Release v1.0.0](https://github.com/mapski/omarchy-haldo-phosphor-theme/releases/tag/v1.0.0)
-identifies the theme tag and source commit. Its archive and checksum attachment
-provide a reproducible record of the distributed files.
+Versioned releases identify the source commit, archive and checksums. A release
+manifest covers the exact distributed files. Existing published tags remain
+fixed; subsequent corrections use a new version.
 
-[Gallery PR #602](https://github.com/omacom/omarchy-site/pull/602) links the
-release, theme source commit and validation evidence. Its two canonical
-gallery links still point to this theme
-repository, as required by the
-[submission guide](https://github.com/omacom/omarchy-site#adding-your-theme).
-
-The gallery export is 1200×675 WebP, 68,130 bytes, generated from the current
-Jade Prism screenshot. Source validation, a GitHub Release, a conflict-free PR
-and maintainer approval are different states. The gallery PR remains under
-maintainer review; this theme is not claimed as an approved or built-in release.
+[Gallery PR #602](https://github.com/omacom/omarchy-site/pull/602) is a separate
+submission. Its two gallery links point to the theme repository, as required by
+the [submission guide](https://github.com/omacom/omarchy-site#adding-your-theme).
+The retained gallery preview is a metadata-free 1200×675 WebP, 68,130 bytes.
+Source validation, a published release and maintainer acceptance are separate
+states. This theme is not claimed as approved or built into Omarchy.
 
 ## Signatures and release integrity
 
-Local signature verification, GitHub identity recognition and passing CI are
-independent checks. Verify both the release commit and its annotated tag. SSH
-authentication-key registration does not register the key for signing; GitHub
-requires that separate use. See [GitHub's verification guidance](https://docs.github.com/en/authentication/troubleshooting-commit-signature-verification/checking-your-commit-and-tag-signature-verification-status).
+Local signature verification and GitHub identity recognition are separate
+checks. Verify the exact release commit and annotated tag using
+[GitHub's verification guidance](https://docs.github.com/en/authentication/troubleshooting-commit-signature-verification/checking-your-commit-and-tag-signature-verification-status).
+Registering an SSH authentication key does not register it for signing.
 
-The v1.0.0 commit and tag have locally valid SSH signatures. At the October 26,
-2026 check, GitHub reported both as `unknown_key` / Unverified. Do not describe
-that release as GitHub-verified unless its current status confirms it.
-
-Release manifests identify exact source and file hashes; checksums verify the
-downloaded attachments. Neither a checksum nor a signed tag by itself enables
-GitHub release immutability. Existing published tags stay fixed by project
-policy. Enforced immutability is a separate GitHub setting for future releases.
+Manifest and checksum comparisons establish which bytes were downloaded.
+Neither a checksum nor a signed tag enables GitHub release immutability; that
+is a separate repository setting. Verify current state instead of relying on
+an old verification observation.
 
 ## Required release checks
 
 Validate clean installation, update from the previous release, pinned-tag and
 local-change handling, failed-download recovery and restoration of the previous
-checkout. Inspect the real terminal, editor, shell and all backgrounds in an
-isolated graphical environment. Record exact Omarchy/application versions and
-separate source, native staging, rendered, upgrade and rollback evidence.
+checkout. Inspect the terminal, editor, shell and all backgrounds in an isolated
+graphical environment. For v1.0.2, exercise a selected PNG background through the
+WebP update and back through rollback. Record exact application versions and
+distinguish source checks, native staging and rendered checks.
 
-After publication, resolve the remote tag and commit again, check their GitHub
-verification and CI at the exact source SHA, download every attachment, and
-compare it with the manifest and approved source. A blocked or untested required
-check is not a pass. New Omarchy versions need their own compatibility checks;
-successful staging on one version does not certify a system upgrade.
+After publication, resolve the remote tag and commit, check their signatures,
+download every attachment and compare it with the manifest and tested source.
+The theme no longer has in-repository CI; validation results must identify the
+exact externally tested source. A blocked or untested required check is not a
+pass. A temporary HOME alone does not isolate desktop services or IPC sockets.
